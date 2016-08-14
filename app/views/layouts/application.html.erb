@@ -12,10 +12,13 @@
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">   
         <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   '#' %></li>
-            <li><%= link_to "Help",   '#' %></li>
-            <li><%= link_to "Log in", '#' %></li>
+          <ul class="nav navbar-nav navbar-right">            
+            <li><%= link_to "Home",   root_path %></li>
+            <li><%= link_to "Endereços",   addresses_path %></li>
+            <li><%= link_to "Usuários",   users_path %></li>           
+            <% if user_signed_in? %>                
+                <li><%= link_to "Sair (#{current_user.name})", destroy_user_session_path, :method => :delete %></li>                
+            <% end %>
           </ul>
         </nav>
       </div>
