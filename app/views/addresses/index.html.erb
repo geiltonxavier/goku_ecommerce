@@ -22,9 +22,9 @@
         <td><%= address.state %></td>
         <td><%= address.city %></td>
         <td><%= address.neighborhood %></td>
-        <td><%= link_to 'Detalhes', address %></td>
-        <td><%= link_to 'Editar', edit_address_path(address) %></td>
-        <td><%= link_to 'Excluir', address, method: :delete, data: { confirm: 'Você tem certeza que deseja Excluir?' }, class: 'btn btn-link btn-danger' %></td>
+        <td><%= link_to 'Detalhes', address, class: "btn btn-info glyphicon glyphicon-align-justify" %></td>
+        <td><%= link_to "Editar", edit_address_path(address), class:"btn btn-warning glyphicon glyphicon-pencil" %></td>
+        <td><%= link_to 'Excluir', address, method: :delete, data: { confirm: 'Você tem certeza que deseja Excluir?' }, class: 'btn btn-danger glyphicon glyphicon-trash' %></td>
       </tr>
     <% end %>
   </tbody>

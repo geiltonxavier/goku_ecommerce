@@ -1,16 +1,15 @@
 <%= form_for(user) do |f| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<% if @user.errors.any? %>
+  <div  id="error_explanation">
+    <h2 class="alert alert-info" ><%= pluralize(@user.errors.count, "error") %> prohibited this mark from being saved:</h2>
+ 
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li class="alert alert-danger"><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -32,6 +31,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Salvar', :class => 'btn btn-primary' %>
   </div>
+  
 <% end %>
