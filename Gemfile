@@ -18,6 +18,8 @@ gem 'correios-cep'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
 end
 
 group :development do
