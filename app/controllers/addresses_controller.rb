@@ -1,8 +1,6 @@
 class AddressesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_address, only: [:show, :edit, :update, :destroy]
-
-
+  
   def index    
     @addresses = Address.get_address_by_zip_code(params_zip_code)
   end
@@ -18,6 +16,7 @@ class AddressesController < ApplicationController
 
   
   def edit
+    @address = Address.find(params[:id])
   end
 
   
@@ -37,6 +36,7 @@ class AddressesController < ApplicationController
 
 
   def update
+    @address = Address.find(params[:id])
     respond_to do |format|
       if @address.update(address_params)
         format.html { redirect_to @address, notice: 'Endereço atualizado com sucesso.' }
@@ -50,6 +50,7 @@ class AddressesController < ApplicationController
 
 
   def destroy
+    @address = Address.find(params[:id])
     @address.destroy
     respond_to do |format|
       format.html { redirect_to addresses_url, notice: 'Endereço deletado com sucesso' }
@@ -57,12 +58,19 @@ class AddressesController < ApplicationController
     end
   end
 
-  private   
-    def set_address
-      @address = Address.find(params[:id])
-    end
+  def find_address_direct_correios
+    zip_code_search = ZipCodeSearch.new(params_zip_code)
+    byebug
 
-   
+    if zip_code_search.valid?
+      render json: zip_code_search.get_address
+    else
+      render json: {}
+    end
+  end
+
+  private  
+     
     def address_params
       params.require(:address).permit(:zip_code, :street, :state, :city, :neighborhood)
     end

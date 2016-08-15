@@ -41,3 +41,16 @@
     </div>
 </div>
 <% end %>
+
+<script>
+  
+  $("#address_zip_code").blur(function(){
+    $.get("/addresses/find_address_direct_correios?zip_code=" + $("#address_zip_code").val(), function(data){
+      $("#address_state").val(data["state"]);
+      $("#address_street").val(data["address"]);
+      $("#address_city").val(data["city"]);
+      $("#address_neighborhood").val(data["neighborhood"]);
+    });
+  });
+
+</script>
