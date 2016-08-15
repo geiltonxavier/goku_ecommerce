@@ -38,7 +38,7 @@ rails s
 
 access http://localhost:3000
 
-user: Admin
+user: admin@admin.com
 Password: admin123
 
 register a new User to access the system
