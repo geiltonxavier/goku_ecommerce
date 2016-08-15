@@ -8,4 +8,11 @@ Rails.application.routes.draw do
   		get :zip_code_search_from_correios
   	end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :addresses, :only => [:index]
+    end
+  end
+
 end
