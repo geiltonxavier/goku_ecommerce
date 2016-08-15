@@ -1,5 +1,6 @@
 class AddressesController < ApplicationController
   before_action :authenticate_user!
+
   
   def index    
     @addresses = Address.get_address_by_zip_code(params_zip_code)
@@ -7,6 +8,7 @@ class AddressesController < ApplicationController
 
  
   def show
+    @address = Address.find(params[:id])
   end
 
   
@@ -58,12 +60,11 @@ class AddressesController < ApplicationController
     end
   end
 
-  def find_address_direct_correios
-    zip_code_search = ZipCodeSearch.new(params_zip_code)
-    byebug
-
-    if zip_code_search.valid?
-      render json: zip_code_search.get_address
+  def zip_code_search_from_correios
+    zip = ::ZipCodeSearchFromCorreio.new(params_zip_code) 
+     
+    if zip.valid?
+      render json: zip.get_address
     else
       render json: {}
     end

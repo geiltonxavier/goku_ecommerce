@@ -11,5 +11,5 @@ class Address < ApplicationRecord
     else
       Address.all
     end
-  end
+  end  
 end

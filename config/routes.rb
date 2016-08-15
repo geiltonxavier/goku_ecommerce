@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :users  
-  resources :addresses
+  resources :addresses do
+  	collection do
+  		get :zip_code_search_from_correios
+  	end
+  end
 end
