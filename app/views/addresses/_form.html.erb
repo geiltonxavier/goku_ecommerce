@@ -1,8 +1,6 @@
 <%= form_for(address) do |f| %>
 <% if @address.errors.any? %>
   <div  id="error_explanation">
-    <h2 class="alert alert-info" ><%= pluralize(@address.errors.count, "error") %> prohibited this mark from being saved:</h2>
- 
     <ul>
     <% @address.errors.full_messages.each do |msg| %>
       <li class="alert alert-danger"><%= msg %></li>

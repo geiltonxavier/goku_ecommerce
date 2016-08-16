@@ -1,6 +1,37 @@
 # encoding: UTF-8
 # pt-BR translations for Devise
 pt-BR:
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "Não pôde ser salvo: 1 erro"
+          other: "Não pôde ser salvo: {{count}} erros"
+        body: "Por favor, cheque os seguintes campos:"
+      messages:
+        already_confirmed: "já foi confirmado"
+        confirmation_period_expired: "precisa ser confirmada em até %{period}, por favor, solicite uma nova"
+        expired: "expirou, por favor, solicite uma nova"
+        not_found: "não encontrado"
+        not_locked: "não foi bloqueado"
+        not_saved:
+        one: "Não foi possível salvar %{resource}: 1 erro"
+        other: "Não foi possível salvar %{resource}: %{count} erros."
+        invalid: "não é válido"
+        confirmation: "não bate com a confirmação"
+        accepted: "precisa ser aceito"
+        empty: "não pode ser vazio"
+        blank: "não pode ser vazio"
+        too_long: "é muito longo (não mais do que %{count} caracteres)"
+        too_short: "é muito curto (não pode ser menor que %{count} caracteres)"
+        wrong_length: "não é do tamanho correto (precisa ter %{count} caracteres)"
+        not_a_number: "não é um número"
+        greater_than: "precisa ser maior do que %{count}"
+        greater_than_or_equal_to: "precisa ser maior ou igual a {{count}}"
+        less_than: "precisa ser menor do que {{count}}"
+        less_than_or_equal_to: "precisa ser menor ou igual a {{count}}"
+        must_be_set: "deve ser informado(a)"
+
   devise:
     confirmations:
       confirmed: 'Sua conta foi confirmada com sucesso. Você está logado.'
@@ -47,17 +78,6 @@ pt-BR:
       send_instructions: 'Dentro de minutos, você receberá um email com instruções para o desbloqueio da sua conta.'
       send_paranoid_instructions: 'Se sua conta existir, você receberá um e-mail com instruções para desbloqueá-la em alguns minutos.'
       unlocked: 'Sua conta foi desbloqueada com sucesso. Efetue login para continuar.'
-
-  errors:
-    messages:
-      already_confirmed: "já foi confirmado"
-      confirmation_period_expired: "precisa ser confirmada em até %{period}, por favor, solicite uma nova"
-      expired: "expirou, por favor, solicite uma nova"
-      not_found: "não encontrado"
-      not_locked: "não foi bloqueado"
-      not_saved:
-        one: "Não foi possível salvar %{resource}: 1 erro"
-        other: "Não foi possível salvar %{resource}: %{count} erros."
     models:
       address: "Endereço"
       user: "Usuário"
